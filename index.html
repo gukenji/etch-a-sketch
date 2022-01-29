@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Etch-a-Sketch</title>
+</head>
+<body>
+    <h1>etch-a-sketch</h1>
+    <div class="container">
+        <div class="options">
+            <p id="controles">Controles</p>
+            <form action="/action_page.php"> 
+                <div class="pixels">
+                    <label for="pixels">Pixels </label>
+                    <input type="range" min="0" max="100" oninput="this.nextElementSibling.value = this.value" id="pixels" name="pixels"> <output id="output">0</output><br><br>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="canvas">
+            
+        </div>
+    </div>
+</body>
+</html>
