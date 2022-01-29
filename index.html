@@ -11,14 +11,27 @@
     <h1>etch-a-sketch</h1>
     <div class="container">
         <div class="options">
-            <p id="controles">Controles</p>
+            <p id="controles">CONTROLES</p>
             <form action="/action_page.php"> 
                 <div class="pixels">
-                    <label for="pixels">Pixels </label>
-                    <input type="range" min="0" max="100" oninput="this.nextElementSibling.value = this.value" id="pixels" name="pixels"> <output id="output">0</output><br><br>
+                    <label id ="pixels" for="pixels">Pixels </label>
+                    <input type="range" min="0" max="100" oninput="this.nextElementSibling.value = this.value" id="pixels-range" name="pixels"> <output id="output">0</output><br><br>
                 </div>
-                <input type="submit" value="Submit">
+                <!-- <input type="submit" value="Submit"> -->
             </form>
+                <div class="rgb-mode">
+                    <p class="text-modes">Modo RGB</p> 
+                    <label class="switch">
+                    <input type="checkbox">
+                        <span class="slider round"></span>
+                </div>
+                <div class="eraser">
+                    <p class="text-modes">Borracha</p> 
+                    <label class="switch">
+                    <input type="checkbox">
+                        <span class="slider round"></span>
+                </div>
+            </label>
         </div>
         <div class="canvas">
             
