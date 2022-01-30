@@ -91,7 +91,34 @@ p.text-modes{
     height: 500px;
     background-color: white;
     border: solid 4px #D4D4D4;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.canvas-column{
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  border-width: thin;
+  border-right: solid  0.1px #D4D4D4;
+}
+.canvas-cell-hovered{
+  border-bottom: solid  0.1px #D4D4D4;
+  border-width: thin;
+  display: flex;
+  flex:1;
+  background-color: black;
+}
+
+
+
+.canvas-cell{
+  border-bottom: solid  0.1px #D4D4D4;
+  border-width: thin;
+  display: flex;
+  flex:1;
+}
+
 
 
 .switch {
