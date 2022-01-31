@@ -14,86 +14,31 @@
             <p id="controles">CONTROLES</p>
 
                 <div class="pixels">
-                    <label id ="pixels" for="pixels">Pixels </label>
-                    <input type="range" value="16" min="0" max="100"  onchange="return createCanvas(this.value)" oninput="this.nextElementSibling.value = this.value" id="pixels-range" name="pixels"> <output id="output">16</output><br><br>
+                    <label id ="pixels" for="pixels">Pixels</label>
+                    <input type="range" autocomplete="off" value="16" min="0" max="100"  onchange="return createCanvas(this.value)" oninput="this.nextElementSibling.value = this.value" id="pixels-range" name="pixels" class="pixels-range"> <output id="output">16</output><br><br>
                 </div>  
 
                 <div class="rgb-mode">
                     <p class="text-modes">Modo RGB</p> 
                     <label class="switch">
-                    <input type="checkbox"  class="check-rgb">
+                    <input type="checkbox" autocomplete="off" class="check-rgb">
                         <span class="slider round"></span>
                 </div>
                 <div class="eraser">
                     <p class="text-modes">Borracha</p> 
                     <label class="switch">
-                    <input type="checkbox" autocomplete="off" id="check-eraser" class="check-eraser">
+                    <input type="checkbox" autocomplete="off"  class="check-eraser">
                         <span class="slider round"></span>
                 </div>
-
+                <div class="clear-canvas">
+                <input type="button" id="clear-canvas" onclick="clearCanvas()" value="Limpar Canvas">
+                  </div>
         </div>
-        <div class="canvas">
+        <div class="container-canvas">>
+            <div class="canvas">;
+            </div>
         </div>
-
     </div>
     <script src="script.js"></script> 
 </body>
 
-
-
-<!-- 
-<script>
-
-//  Criando Canvas   
-    const canvasSize = document.getElementById('pixels-range');
-    const canvasSpace = document.querySelector('div.canvas');
-    const eraserFalse = document.querySelector('.check-eraser');
-    eraserFalse.checked = false;
-
-function createCanvas (size){
-    document.querySelector('.canvas').innerHTML = ''
-    for (i = 0; i< size; i++){
-        const column = document.createElement("div");
-        column.className = "canvas-column";
-        for (j=0; j < size; j++){
-            const cell = document.createElement("div");
-            cell.className = "canvas-cell";
-            column.appendChild(cell);
-            cell.onmouseover = function(){
-                this.style.background = "black"; 
-        }
-        canvasSpace.appendChild(column);
-        }
-    }
-}
-
-//Alterando para modo borracha
-    const switchStatus = document.querySelector('.check-eraser');
-    switchStatus.addEventListener("click",function(){
-        if(switchStatus.checked==true){
-        console.log(this.checked);
-        var eraser = document.querySelectorAll('.canvas-cell');
-        for(i=0; i<eraser.length;i++){
-            (function(i) {
-                eraser[i].onmouseover = function() {
-                this.style.background='white';
-            }
-        }(i));
-        }
-    }else{
-        console.log(this.checked);
-        var cell = document.querySelectorAll('.canvas-cell');
-        for (i=0 ; i <cell.length;i++){
-            (function(i) {
-                cell[i].onmouseover = function() {
-                this.style.background='black';
-            }
-        }(i)); 
-        }
-    }}
-    );
-
-
-</script>
-
-</html> -->

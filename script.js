@@ -1,8 +1,7 @@
 //  Criando Canvas   
 const canvasSize = document.getElementById('pixels-range');
 const canvasSpace = document.querySelector('div.canvas');
-const eraserFalse = document.querySelector('.check-eraser');
-// window.addEventListener('DOMContentLoaded', ()=>{eraserFalse.checked = false;})
+
 
 function createCanvas (size){
 document.querySelector('.canvas').innerHTML = ''
@@ -21,11 +20,16 @@ for (i = 0; i< size; i++){
 }
 }
 
+// Pegar status do toggle
+const statusEraser = document.querySelector('.check-eraser');
+const statusRGB = document.querySelector('.check-rgb');
+
+
 //Alterando para modo borracha
-const switchStatus = document.querySelector('.check-eraser');
-switchStatus.addEventListener("click",function(){
-    if(switchStatus.checked==true){
+statusEraser.addEventListener("click",function(){
+    if(statusEraser.checked==true){
     console.log(this.checked);
+    statusRGB.checked=false;
     var eraser = document.querySelectorAll('.canvas-cell');
     for(i=0; i<eraser.length;i++){
         (function(i) {
@@ -46,3 +50,74 @@ switchStatus.addEventListener("click",function(){
     }
 }}
 );
+
+
+// Alterando para modo RGB
+statusRGB.addEventListener("click",function(){
+    console.log(this.checked);
+    statusEraser.checked=false;
+    var cell = document.querySelectorAll('.canvas-cell');
+    if(statusRGB.checked==true){
+    for(i=0; i<cell.length;i++){
+        if (i%10==0){
+            (function(i) {
+                cell[i].onmouseover = function() {
+                this.style.background='black';
+            }
+        }(i));
+        }else {
+        (function(i) {
+            cell[i].onmouseover = function() {
+            this.style.background= (function(){
+                return '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+            }());
+        }
+    }(i));
+    }}
+} else if (statusRGB.checked==false && statusEraser.checked == false){
+    for(i=0; i<cell.length;i++){
+        (function(i) {
+            cell[i].onmouseover = function() {
+            this.style.background='black';
+        }
+    }(i));
+    }
+}
+})
+
+
+//Limpar Canvas
+    function clearCanvas (){
+        var pixels = document.querySelector('input.pixels-range').value;
+        createCanvas(pixels);
+        var cell = document.querySelectorAll('.canvas-cell');
+        if(statusRGB.checked==true){
+            for(i=0; i<cell.length;i++){
+                if (i%10==0){
+                    (function(i) {
+                        cell[i].onmouseover = function() {
+                        this.style.background='black';
+                    }
+                }(i));
+                }else {
+                (function(i) {
+                    cell[i].onmouseover = function() {
+                    this.style.background= (function(){
+                        return '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+                    }());
+                }
+            }(i));
+            }}
+        } else if (statusRGB.checked==false && statusEraser.checked == false){
+            for(i=0; i<cell.length;i++){
+                (function(i) {
+                    cell[i].onmouseover = function() {
+                    this.style.background='black';
+                }
+            }(i));
+            }
+        } else{
+            statusEraser.checked=false;
+        }
+    }
+
