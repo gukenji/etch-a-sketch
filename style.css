@@ -99,21 +99,12 @@ p.text-modes{
   display: flex;
   flex:1;
   flex-direction: column;
-  border-width: thin;
-  border-right: solid  0.1px #D4D4D4;
-}
-.canvas-cell-hovered{
-  border-bottom: solid  0.1px #D4D4D4;
-  border-width: thin;
-  display: flex;
-  flex:1;
-  background-color: black;
 }
 
 
 
 .canvas-cell{
-  border-bottom: solid  0.1px #D4D4D4;
+  border: solid  0.1px #D4D4D4;
   border-width: thin;
   display: flex;
   flex:1;
@@ -162,12 +153,13 @@ p.text-modes{
     transition: .4s;
   }
   
+
   input:checked + .slider {
     background-color: green;
   }
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+  input:hover + .slider {
+    box-shadow: 0 0 3px #2196F3;
   }
   
   input:checked + .slider:before {
